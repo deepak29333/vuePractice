@@ -1,69 +1,30 @@
 <template>
-  <div>
-     <Card>this is card</Card>
-     <Card></Card>
-     <Card> <h2> this is card2 </h2> </Card>
-     <Card> <img src="https://picsum.photos/200" alt=""> </Card>
-     <Card> 
-      <template v-slot:header >
-        <div>
-          this is header slot
-        </div>
-      </template>
-     </Card>
-     <Card> 
-      <template v-slot:default >
-        <div>
-          <img src="https://picsum.photos/200" alt="">
-        </div>
-      </template>
-     </Card>
-     <Card> 
-      <template v-slot:footer >
-        <div>
-          <button>vue details</button>
-        </div>
-      </template>
-     </Card>
-
-     <NameList>
-        <template v-slot:default="slotProps" >
-         {{slotProps.firstName}}{{ slotProps.lastName }}
-        </template>
-     </NameList>
-
-     <NameList>
-        <template v-slot:default="slotProps" >
-         {{slotProps.lastName}}{{ slotProps.firstName }}
-        </template>
-     </NameList>
-     <NameList>
-        <template v-slot:default="slotProps" >
-        {{ slotProps.firstName }}
-        </template>
-     </NameList>
-  </div>
+  <h2> this is main component</h2>
+  <!-- <ChildStyle/> -->
+  <Posts/>
+  <CreatePostVue/>
  </template>
 
 <script>
-import Card from './components/Card.vue';
-import NameList from './components/NameList.vue';
+import Posts from './components/Posts.vue';
+import CreatePostVue from './components/CreatePost.vue';
+// import ChildStyle from './components/ChildStyle.vue';
 export default {
   name: 'App',
   components:{
-    Card,
-    NameList
+   Posts,
+   CreatePostVue
 },
  data(){
   return{
     name:''
-  }
+  } 
 }
 
 }
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -71,5 +32,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h2{
+  color: orange;
 }
 </style>
