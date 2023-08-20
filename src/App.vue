@@ -1,47 +1,64 @@
 <template>
-  <!-- <Greet name="Deepak" hero-name="supetMan" />
-  <Greet name="Bruce"  hero-name="batman" />
-  <Greet  name="Ankit" hero-name="spiderman" />
-  <Greet  :name="name" :hero-name="channel" /> -->
-    <!-- <Article id="my-article" title="Article Title" 
-    :likes="10" :isPublished="true" /> -->\
-    <h2> App component username:{{ name }}</h2>
-      <ComponentC/>
-      <button @click="showPopup=true" >show Popup</button>
-      <Popup v-show="showPopup" @close="closePopup" />
+  <div>
+     <Card>this is card</Card>
+     <Card></Card>
+     <Card> <h2> this is card2 </h2> </Card>
+     <Card> <img src="https://picsum.photos/200" alt=""> </Card>
+     <Card> 
+      <template v-slot:header >
+        <div>
+          this is header slot
+        </div>
+      </template>
+     </Card>
+     <Card> 
+      <template v-slot:default >
+        <div>
+          <img src="https://picsum.photos/200" alt="">
+        </div>
+      </template>
+     </Card>
+     <Card> 
+      <template v-slot:footer >
+        <div>
+          <button>vue details</button>
+        </div>
+      </template>
+     </Card>
+
+     <NameList>
+        <template v-slot:default="slotProps" >
+         {{slotProps.firstName}}{{ slotProps.lastName }}
+        </template>
+     </NameList>
+
+     <NameList>
+        <template v-slot:default="slotProps" >
+         {{slotProps.lastName}}{{ slotProps.firstName }}
+        </template>
+     </NameList>
+     <NameList>
+        <template v-slot:default="slotProps" >
+        {{ slotProps.firstName }}
+        </template>
+     </NameList>
+  </div>
  </template>
 
 <script>
-import ComponentC from './components/ComponentC.vue';
-import Popup from './components/Popup.vue';
-
-// import Greet from "./components/Greet.vue";
-// import Article from "./components/Article.vue";
-
+import Card from './components/Card.vue';
+import NameList from './components/NameList.vue';
 export default {
   name: 'App',
   components:{
-    ComponentC,
-    Popup
+    Card,
+    NameList
 },
  data(){
   return{
-    name:'deepak',
-    showPopup:false
+    name:''
   }
-},
-methods:{
-  closePopup(name){
-    this.showPopup=false,
-    console.log('name',name)
-  }
-},
-  provide(){
-    return{
-      username:this.name
-    }
-      
-    }
+}
 
 }
 </script>

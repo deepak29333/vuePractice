@@ -12,7 +12,7 @@
         emits:{
             close:(name)=>{
                 if(!name)
-                    return false;
+                return false;
                 else{
                     return true
                 }
