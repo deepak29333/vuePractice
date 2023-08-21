@@ -7,6 +7,7 @@
         <hr>
         </div>
         <h3 v-if="errorMgs">{{errorMgs }}</h3>
+        <input type="text" ref="inputRef" />
     </div>
 </template>
 
@@ -14,7 +15,11 @@
 import axios from 'axios'
     export default {
         name:'Posts',
+        mounted(){
+            this.$refs.inputRef.focus();
+        },
         created(){
+            // this.$refs.inputRef.focus();
             this.getPosts();
         },
         data(){
